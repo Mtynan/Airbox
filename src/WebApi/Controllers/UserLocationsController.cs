@@ -22,8 +22,8 @@ namespace WebApi.Controllers
         /// Creates a new User Location
         /// </summary>
         /// <param name="req">The request needed to create a new User Location.</param>
-        /// <response code="200">Returns if the User Location is successfully created.</response>
-        /// <response code="400">Returns if the request contains validation errors.</response>
+        /// <response code="200">Successful operation</response>
+        /// <response code="400">Invalid input</response>
         [HttpPost]
         public async Task<IActionResult> CreateUserLocation(CreateUserLocationRequest req)
         {
@@ -34,9 +34,9 @@ namespace WebApi.Controllers
         /// Gets the most recent user location by User Id.
         /// </summary>
         /// <param name="userId">The Id of the user.</param>
-        /// <response code="200">Returns if the retrival of the users location is successful.</response>
-        /// <response code="400">Returns if there's a validation error with the request.</response>
-        /// <response code="404">Returns if there is no data to retrive.</response>
+        /// <response code="200">Successful operation</response>
+        /// <response code="400">Invalid input</response>
+        /// <response code="404">Location not found.</response>
         [HttpGet("{userId:int}/recent")]
         public async Task<IActionResult> GetMostRecentUserLocation(int userId)
         {
@@ -47,9 +47,9 @@ namespace WebApi.Controllers
         /// Gets All of the users known locations by User Id.
         /// </summary>
         /// <param name="userId">The Id of the user.</param>
-        /// <response code="200">Returns if the retrival of the users locations is successful.</response>
-        /// <response code="400">Returns if there's a validation error with the request.</response>
-        /// <response code="404">Returns if there is no data to retrive.</response>
+        /// <response code="200">Successful operation</response>
+        /// <response code="400">Invalid input</response>
+        /// <response code="404">Location(s) not found.</response>
         [HttpGet("{userId:int}")]
         public async Task<IActionResult> GetAllUserLocations(int userId)
         {
@@ -59,8 +59,8 @@ namespace WebApi.Controllers
         /// <summary>
         /// Gets all users most recent locations.
         /// </summary>
-        /// <response code="200">Returns if the retrival of the user locations is successful.</response>
-        /// <response code="404">Returns there is no data to retrive.</response>
+        /// <response code="200">Successful operation</response>
+        /// <response code="404">Location(s) not found.</response>
         [HttpGet("recent")]
         public async Task<IActionResult> GetAllUsersRecentLocations()
         {
