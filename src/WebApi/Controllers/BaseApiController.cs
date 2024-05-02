@@ -7,15 +7,7 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class BaseApiController : ControllerBase
     {
-        //protected ActionResult HandleResult<T>(Response<T> result)
-        //{
-        //    //if (result.IsSuccess && result.Data != null)
-        //    //    return Ok(result.Data);
-        //    //if (result.IsSuccess && result.Data == null)
-        //    //    return NoContent();
-        //    //return BadRequest(); 
-
-        //}
+ 
     }
 }
 
