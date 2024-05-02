@@ -12,6 +12,6 @@ namespace Domain.Entities
         public double Latitude { get; set; }
         public double Longitude { get; set; }
         public int UserId { get; set; }
-        public DateTime CreatedAt { get; set; } = DateTime.Now;
+        public DateTime CreatedAt { get; set; } 
     }
 }
