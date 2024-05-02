@@ -10,7 +10,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    options.SwaggerDoc("v1", new OpenApiInfo { Title = "User Location API", Version = "v1", Description = "test descriptionasdasdsa" });
+    options.SwaggerDoc("v1", new OpenApiInfo { Title = "User Location API", Version = "v1", 
+        Description = "Manages and retrieves location data for users. Operations to create new user locations and " +
+        "querying for the most recent location for a specific user, all known locations for a specific user and most recent locations for all users." 
+    });
 
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
