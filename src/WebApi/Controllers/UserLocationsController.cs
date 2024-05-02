@@ -28,7 +28,7 @@ namespace WebApi.Controllers
         public async Task<IActionResult> CreateUserLocation(CreateUserLocationRequest req)
         {
             var result = await _mediator.Send(new CreateLocationCommand(req.Latitude, req.Longitude, req.UserId));
-            return Ok(result); 
+            return Ok(result.Data); 
         }
         /// <summary>
         /// Gets the most recent user location by User Id.
