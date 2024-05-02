@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: User Location API
-  description: Manages and retrieves location data for users. Operations to create user-specific locations and querying for the most recent location for a specific user, all known locations for a specific user and most recent locations for all users.
+  description: Manages and retrieves location data for users. Operations to create new user locations and querying for the most recent location for a specific user, all known locations for a specific user and most recent locations for all users.
   version: v1
 paths:
   /api/UserLocations:
@@ -23,9 +23,9 @@ paths:
               $ref: '#/components/schemas/CreateUserLocationRequest'
       responses:
         '200':
-          description: Returns if the User Location is successfully created.
+          description: Successful operation
         '400':
-          description: Returns if the request contains validation errors.
+          description: Invalid input
   /api/UserLocations/{userId}/recent:
     get:
       tags:
@@ -42,11 +42,11 @@ paths:
             format: int32
       responses:
         '200':
-          description: Returns if the retrival of the users location is successful.
+          description: Successful operation
         '400':
-          description: Returns if there's a validation error with the request.
+          description: Invalid input
         '404':
-          description: Returns if there is no data to retrive.
+          description: Location not found.
   /api/UserLocations/{userId}:
     get:
       tags:
@@ -63,11 +63,11 @@ paths:
             format: int32
       responses:
         '200':
-          description: Returns if the retrival of the users locations is successful.
+          description: Successful operation
         '400':
-          description: Returns if there's a validation error with the request.
+          description: Invalid input
         '404':
-          description: Returns if there is no data to retrive.
+          description: Location(s) not found.
   /api/UserLocations/recent:
     get:
       tags:
@@ -75,9 +75,9 @@ paths:
       summary: Gets all users most recent locations.
       responses:
         '200':
-          description: Returns if the retrival of the user locations is successful.
+          description: Successful operation
         '404':
-          description: Returns there is no data to retrive.
+          description: Location(s) not found.
 components:
   schemas:
     CreateUserLocationRequest:
@@ -87,13 +87,16 @@ components:
           type: integer
           description: The Id of the user.
           format: int32
+          example: 1
         latitude:
           type: number
           description: The latitude of the location.
           format: double
+          example: 45
         longitude:
           type: number
           description: The longitude of the location.
           format: double
+          example: -45
       additionalProperties: false
       description: The request to create a new user location.
